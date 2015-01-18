@@ -1,8 +1,11 @@
 package com.demo.common;
 
 import com.demo.blog.Blog;
+
 import com.demo.blog.BlogController;
 import com.demo.index.IndexController;
+import com.demo.user.User;
+import com.demo.user.UserController;
 import com.jfinal.config.Constants;
 import com.jfinal.config.Handlers;
 import com.jfinal.config.Interceptors;
@@ -22,8 +25,9 @@ public class DemoConfig extends JFinalConfig {
 	 * 配置常量
 	 */
 	public void configConstant(Constants me) {
+		
 		// 加载少量必要配置，随后可用getProperty(...)获取值
-		loadPropertyFile("a_little_config.txt");
+		loadPropertyFile("config.txt"); 
 		me.setDevMode(getPropertyToBoolean("devMode", false));
 	}
 	
@@ -33,6 +37,7 @@ public class DemoConfig extends JFinalConfig {
 	public void configRoute(Routes me) {
 		me.add("/", IndexController.class, "/index");	// 第三个参数为该Controller的视图存放路径
 		me.add("/blog", BlogController.class);			// 第三个参数省略时默认与第一个参数值相同，在此即为 "/blog"
+		me.add("/user",UserController.class);
 	}
 	
 	/**
@@ -47,6 +52,7 @@ public class DemoConfig extends JFinalConfig {
 		ActiveRecordPlugin arp = new ActiveRecordPlugin(c3p0Plugin);
 		me.add(arp);
 		arp.addMapping("blog", Blog.class);	// 映射blog 表到 Blog模型
+		arp.addMapping("user","UserID",User.class);
 	}
 	
 	/**

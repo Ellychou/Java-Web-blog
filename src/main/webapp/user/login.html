@@ -1,0 +1,35 @@
+<#include "/common/_layout.html"/>
+<@layout>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-3 col-md-offset-4">
+			<h1>Login</h1>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-3 col-md-offset-4">
+			<form id="login-form" action="userController" method="post">
+				<div class="form-group">
+					<p><input type="email" class="form-control" id="email"  placeholder="Enter your email"/></p>
+				</div>
+				<div class="form-group">
+					<p><input type="password" class="form-control" id="password" required placeholder="Enter your password"/></p>
+				</div>
+				<div class="form-group">
+					<P><label>
+						<input type="checkbox" id="rememberme" value="forever"/>Remember me
+					</label></P>
+				</div>
+				<div class="form-group">
+					<button type="submit" class="btn btn-primary">Login</button>
+				</div>
+				
+			</form>
+		<p><a href="signup">No account? Sign up now!</a></p>
+		</div>
+	</div>
+
+</div>
+
+</@layout>
