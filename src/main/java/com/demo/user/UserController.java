@@ -6,7 +6,7 @@ import com.jfinal.core.Controller;
 public class UserController extends Controller {
 	
 	public void index() {
-		//renderJson("hello");
+		renderJson("hello");
 	}
 
 	public void login(){
@@ -21,8 +21,13 @@ public class UserController extends Controller {
 	}
 	
 	public void save(){
-		//String email = getPara("email");
-		getModel(User.class).save();
+		String email = getPara("email");
+		String name = getPara("userName","ss");
+		String password = getPara("password");
+		System.out.println(email + " - " + name + " - " +password);
+		User.dao.createNewUser(email, name, password);
+		
+		
 		redirect("/blog");
 		
 	}

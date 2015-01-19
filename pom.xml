@@ -28,7 +28,7 @@
     <dependency>
     	<groupId>com.jfinal</groupId>
     	<artifactId>jfinal</artifactId>
-    	<version>1.9</version>
+    	<version>1.8</version>
     </dependency>
 	<!-- Jetty JSP：根据 Dependency Hierarchy 视图拆分成了七个 dependency，
             - 方便项目以及便于 导出 war的在jetty与tomcat间无缝迁移
